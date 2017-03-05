@@ -78,35 +78,6 @@ class JwtOAuth2AuthorizationServerConfiguration extends OAuth2AuthorizationServe
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.withClientDetails(clientDetailsService);
-/*
-        // 이부분 주석을 풀고 위의 코드를 주석처리하면
-        // 클라이언트 정보를 직접 기술 할 수 있다
-        // @formatter:off
-        clients.inMemory()
-                // 클라이언트 아이디
-            .withClient("my_client_id")
-                // 클라이언트 시크릿
-                .secret("my_client_secret")
-                // 엑세스토큰 발급 가능한 인증 타입
-                // 기본이 다섯개, 여기 속성이 없으면 인증 불가
-                .authorizedGrantTypes("authorization_code", "password", "client_credentials", "implicit", "refresh_token")
-                // 클라이언트에 부여된 권한
-                .authorities("ROLE_MY_CLIENT")
-                // 이 클라이언트로 접근할 수 있는 범위 제한
-                // 해당 클라이언트로 API를 접근 했을때 접근 범위를 제한 시키는 속성
-                .scopes("read", "write")
-                // 이 클라이언트로 발급된 엑세스토큰의 시간 (단위:초)
-                .accessTokenValiditySeconds(60 * 60 * 4)
-                // 이 클라이언트로 발급된 리프러시토큰의 시간 (단위:초)
-                .refreshTokenValiditySeconds(60 * 60 * 24 * 120)
-            .and()
-            .withClient("your_client_id")
-                .secret("your_client_secret")
-                .authorizedGrantTypes("authorization_code", "implicit")
-                .authorities("ROLE_YOUR_CLIENT")
-                .scopes("read")
-            .and();
-        // @formatter:on
-*/
+
     }
 }
